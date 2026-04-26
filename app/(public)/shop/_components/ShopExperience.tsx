@@ -97,23 +97,78 @@ export default function ShopExperience({
         />
       </div>
 
-      <section className="px-6 md:px-10 py-16 bg-bone min-h-[60vh]">
-        <div className="max-w-7xl mx-auto">
-          <ProductGridWithEditorial
-            products={visible}
-            drops={drops}
-          />
+      <ShopGridBackdrop>
+        <ProductGridWithEditorial
+          products={visible}
+          drops={drops}
+        />
 
-          {visible.length === 0 && <EmptyState onReset={() => {
-            setCategory("All");
-            setDropFilter("All");
-            setShowSold(true);
-          }} />}
-        </div>
-      </section>
+        {visible.length === 0 && <EmptyState onReset={() => {
+          setCategory("All");
+          setDropFilter("All");
+          setShowSold(true);
+        }} />}
+      </ShopGridBackdrop>
 
       <BrowseArchiveCTA />
     </>
+  );
+}
+
+// ---------- Layered architectural backdrop ----------
+
+function ShopGridBackdrop({ children }: { children: React.ReactNode }) {
+  return (
+    <section className="relative px-6 md:px-10 py-20 md:py-24 bg-bone min-h-[60vh] overflow-hidden">
+      {/* Layer 1 — soft top-down warmth */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_120%_60%_at_50%_-10%,rgba(255,251,242,0.9),transparent_60%)]" />
+
+      {/* Layer 2 — bottom shadow band giving the floor weight */}
+      <div className="absolute inset-x-0 bottom-0 h-48 pointer-events-none bg-gradient-to-t from-wheat/40 via-bone/20 to-transparent" />
+
+      {/* Layer 3 — faint stone-marble texture */}
+      <div
+        className="absolute inset-0 pointer-events-none opacity-[0.07] mix-blend-multiply"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1604147495798-57beb5d6af73?auto=format&fit=crop&w=2400&q=60')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      />
+
+      {/* Layer 4 — vertical hairline columns (gallery wall) */}
+      <div className="absolute inset-0 pointer-events-none max-w-7xl mx-auto px-6 md:px-10">
+        <div className="relative h-full hidden md:block">
+          <div className="absolute inset-y-0 left-0 w-px bg-charcoal/[0.05]" />
+          <div className="absolute inset-y-0 left-1/3 w-px bg-charcoal/[0.05]" />
+          <div className="absolute inset-y-0 left-2/3 w-px bg-charcoal/[0.05]" />
+          <div className="absolute inset-y-0 right-0 w-px bg-charcoal/[0.05]" />
+        </div>
+      </div>
+
+      {/* Layer 5 — giant rotated wordmark watermark, hugging the left edge */}
+      <div className="absolute -left-3 top-1/2 -translate-y-1/2 pointer-events-none hidden md:block">
+        <p
+          className="font-display italic text-charcoal/[0.05] whitespace-nowrap select-none"
+          style={{
+            fontSize: "clamp(160px, 18vw, 320px)",
+            lineHeight: 1,
+            writingMode: "vertical-rl",
+            transform: "rotate(180deg)",
+            letterSpacing: "-0.02em",
+          }}
+        >
+          Vol · II · Shop
+        </p>
+      </div>
+
+      {/* Layer 6 — top horizontal hairline, like a gallery rail */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-charcoal/15" />
+
+      {/* Content */}
+      <div className="relative max-w-7xl mx-auto">{children}</div>
+    </section>
   );
 }
 
