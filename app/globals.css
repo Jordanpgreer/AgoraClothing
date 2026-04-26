@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+@theme {
+  /* Limestone palette — warm, architectural */
+  --color-bone: #f5f0e6;
+  --color-limestone: #ece4d3;
+  --color-cream: #e6dcc6;
+  --color-wheat: #d8cdb5;
+  --color-sand: #c4b8a1;
+  --color-clay: #a99d86;
+  --color-stone: #7d7466;
+  --color-shadow: #4a443c;
+  --color-charcoal: #2a2722;
+  --color-ink: #14130f;
+
+  --font-display: "Cormorant Garamond", "Times New Roman", serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  --tracking-airy: 0.34em;
+  --tracking-wordmark: 0.42em;
+}
+
+@layer base {
+  :root {
+    --background: var(--color-bone);
+    --foreground: var(--color-ink);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+  }
+
+  ::selection {
+    background: var(--color-charcoal);
+    color: var(--color-bone);
+  }
+}
+
+@layer utilities {
+  .font-display { font-family: var(--font-display); }
+  .font-sans { font-family: var(--font-sans); }
+  .font-mono { font-family: var(--font-mono); }
+
+  /* Wide-tracked all-caps label, the dominant Agora typographic mark */
+  .label {
+    font-family: var(--font-sans);
+    font-size: 0.68rem;
+    letter-spacing: var(--tracking-airy);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .label-sm {
+    font-family: var(--font-sans);
+    font-size: 0.6rem;
+    letter-spacing: var(--tracking-airy);
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .wordmark {
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: var(--tracking-wordmark);
+    text-transform: uppercase;
+  }
+
+  .hairline {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, currentColor, transparent);
+    opacity: 0.22;
+  }
+
+  .rule {
+    height: 1px;
+    background: currentColor;
+    opacity: 0.4;
+  }
+
+  .grain::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 50;
+    opacity: 0.04;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  }
+
+  .marquee { animation: marquee 60s linear infinite; }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* Slow fade for hero */
+  .breath {
+    animation: breath 6s ease-in-out infinite;
+  }
+  @keyframes breath {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+}

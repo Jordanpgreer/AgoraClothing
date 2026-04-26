@@ -1,0 +1,219 @@
+{
+  "hero": {
+    "subtitle": "Drop 01: Foundation",
+    "ctaLabel": "Enter",
+    "ctaHref": "/drops/drop-01-foundation",
+    "leftMeta": "Winter 2026",
+    "rightMeta": "Made in Porto",
+    "coverImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1800&q=80"
+  },
+  "philosophy": {
+    "eyebrow": "The Practice",
+    "heading": "A space, not a store.",
+    "tenets": [
+      { "n": "I", "title": "Made slowly.", "body": "Each drop is a single run, made in a small atelier in Porto. There is no restock — only the next." },
+      { "n": "II", "title": "Designed to last.", "body": "Cuts soften, colors deepen. Garments are intended to grow into the body." },
+      { "n": "III", "title": "Quietly worn.", "body": "No screen prints, no logos at the chest. The label sits on the inside seam." }
+    ]
+  },
+  "newsletter": {
+    "eyebrow": "Become a member",
+    "heading": "A letter, once a month.",
+    "body": "A note from the studio, the cover image of the next drop, and a link before anyone else has it.",
+    "background": "https://images.unsplash.com/photo-1542856204-00a3bdf28dba?auto=format&fit=crop&w=2000&q=80"
+  },
+  "about": {
+    "eyebrow": "The Studio",
+    "heading": "We make a small number of things, with care.",
+    "intro": "Agora began as a notebook — drawings of garments we wanted to live in but couldn't find. Softer than uniform, quieter than fashion. We started with a single tee, made fifty of them, and listened. Each drop since has followed the same rule: small, considered, finished by hand, and never restocked.",
+    "image": "https://images.unsplash.com/photo-1565073624497-7e91b5cc3843?auto=format&fit=crop&w=1800&q=80",
+    "practiceLabel": "A Practice",
+    "practiceBody": "We work the way a studio works — slowly, with notes. A drop begins as a feeling and ends as a paper-wrapped box on a doorstep.",
+    "spaceLabel": "A Space",
+    "spaceBody": "The atelier is in a converted printer's shop in Porto. The cutting tables are old; the light comes from the north. We share it with two other small labels and a bookbinder. There is no showroom and there are no sales. Everything we make is on the site, and when it sells out, that is the end of it."
+  },
+  "footer": {
+    "tagline": "A clothing studio working in volumes. Made in Porto, Portugal, in small numbers, by hand."
+  },
+  "drops": [
+    {
+      "slug": "drop-02-structure",
+      "number": "II",
+      "numeric": "02",
+      "title": "Structure",
+      "subtitle": "On weight, line, and the shape of standing.",
+      "season": "Spring 2026",
+      "releaseDate": "2026-05-08T17:00:00Z",
+      "status": "upcoming",
+      "palette": ["#f3ede1", "#e2d8c5", "#c4b8a1", "#8a7f6d", "#2a2722"],
+      "cover": "https://images.unsplash.com/photo-1565073624497-7e91b5cc3843?auto=format&fit=crop&w=1800&q=80",
+      "story": "Structure is a study in mass — the way a column holds light, the way a heavy garment holds the body. Six pieces, cut for posture.",
+      "products": []
+    },
+    {
+      "slug": "drop-01-foundation",
+      "number": "I",
+      "numeric": "01",
+      "title": "Foundation",
+      "subtitle": "The first stones — the garments everything else is built upon.",
+      "season": "Winter 2026",
+      "releaseDate": "2026-02-14T17:00:00Z",
+      "status": "live",
+      "palette": ["#f3ede1", "#e7dccb", "#c4b8a1", "#5e544a", "#1f1d1a"],
+      "cover": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1800&q=80",
+      "story": "Foundation begins the practice. Six pieces, cut from heavy cottons and undyed wool, finished by hand in a small atelier in Porto. The palette is limestone and shadow. The silhouettes are quiet enough to live in.",
+      "products": [
+        {
+          "slug": "core-hoodie",
+          "name": "Core Hoodie",
+          "category": "Hoodie",
+          "price": 160,
+          "colorway": "Limestone",
+          "fabric": "Brushed loopback fleece, 480gsm",
+          "description": "Boxy, garment-dyed in small batches. The hood drapes; the cuffs are bound by hand.",
+          "images": [
+            "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1800&q=80"
+          ],
+          "sizes": ["XS", "S", "M", "L", "XL"],
+          "soldOut": false
+        },
+        {
+          "slug": "weight-tee",
+          "name": "Weight Tee",
+          "category": "Tee",
+          "price": 90,
+          "colorway": "Charcoal",
+          "fabric": "Heavyweight Pima cotton, 260gsm",
+          "description": "A boxy tee with weight enough to fall properly. Hand-rolled hem, taped shoulders.",
+          "images": [
+            "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1800&q=80"
+          ],
+          "sizes": ["XS", "S", "M", "L", "XL"],
+          "soldOut": false
+        },
+        {
+          "slug": "half-zip",
+          "name": "Half Zip",
+          "category": "Pullover",
+          "price": 170,
+          "colorway": "Stone",
+          "fabric": "Brushed cotton, 420gsm",
+          "description": "A modest collar, a metal pull. Cut to sit cleanly under outerwear.",
+          "images": [
+            "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?auto=format&fit=crop&w=1800&q=80"
+          ],
+          "sizes": ["XS", "S", "M", "L", "XL"],
+          "soldOut": false
+        },
+        {
+          "slug": "cotton-sweats",
+          "name": "Cotton Sweats",
+          "category": "Sweatpant",
+          "price": 150,
+          "colorway": "Limestone",
+          "fabric": "French terry, 420gsm",
+          "description": "A relaxed cut, gently tapered. Drawcord with metal tip. Made to be lived in.",
+          "images": [
+            "https://images.unsplash.com/photo-1594633313593-bab3825d0caf?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1602810316693-3667c854239a?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1800&q=80"
+          ],
+          "sizes": ["XS", "S", "M", "L", "XL"],
+          "soldOut": false
+        },
+        {
+          "slug": "zip-hoodie",
+          "name": "Zip Hoodie",
+          "category": "Hoodie",
+          "price": 180,
+          "colorway": "Charcoal",
+          "fabric": "Brushed loopback, 500gsm",
+          "description": "A full-zip with a soft, structured hood. Brass hardware, bound seams.",
+          "images": [
+            "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1618354691229-88d47f285158?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1800&q=80"
+          ],
+          "sizes": ["XS", "S", "M", "L", "XL"],
+          "soldOut": false
+        },
+        {
+          "slug": "oversized-tee",
+          "name": "Oversized Tee",
+          "category": "Tee",
+          "price": 85,
+          "colorway": "Bone",
+          "fabric": "Slub cotton jersey, 240gsm",
+          "description": "Cut wide through the chest, dropped at the shoulder. The hem is left raw.",
+          "images": [
+            "https://images.unsplash.com/photo-1620799140188-3b2a02fd9a77?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1800&q=80",
+            "https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?auto=format&fit=crop&w=1800&q=80"
+          ],
+          "sizes": ["XS", "S", "M", "L", "XL"],
+          "soldOut": false
+        }
+      ]
+    },
+    {
+      "slug": "drop-00-origins",
+      "number": "0",
+      "numeric": "00",
+      "title": "Origins",
+      "subtitle": "The garments that taught us what to make.",
+      "season": "Autumn 2025",
+      "releaseDate": "2025-10-12T17:00:00Z",
+      "status": "archived",
+      "palette": ["#f3ede1", "#d9d2c4", "#7a7268", "#1f1d1a"],
+      "cover": "https://images.unsplash.com/photo-1505881502353-a1986add3762?auto=format&fit=crop&w=1800&q=80",
+      "story": "The earliest patterns. Garments cut for the studio's own use, then offered to a small circle.",
+      "products": [
+        {
+          "slug": "origin-tee",
+          "name": "Origin Tee",
+          "category": "Tee",
+          "price": 80,
+          "colorway": "Bone",
+          "fabric": "Heavyweight cotton, 240gsm",
+          "description": "The first tee. A blueprint for everything since.",
+          "images": ["https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=1800&q=80"],
+          "sizes": ["S", "M", "L", "XL"],
+          "soldOut": true
+        }
+      ]
+    },
+    {
+      "slug": "drop-00-intro",
+      "number": "0",
+      "numeric": "00",
+      "title": "Intro",
+      "subtitle": "A first letter — the studio's opening note.",
+      "season": "Summer 2025",
+      "releaseDate": "2025-06-21T17:00:00Z",
+      "status": "archived",
+      "palette": ["#f3ede1", "#e2d8c5", "#b8b0a1"],
+      "cover": "https://images.unsplash.com/photo-1552432552-06c0b0a94dda?auto=format&fit=crop&w=1800&q=80",
+      "story": "A short, quiet release. Two pieces, sent to friends.",
+      "products": [
+        {
+          "slug": "intro-tee",
+          "name": "Intro Tee",
+          "category": "Tee",
+          "price": 75,
+          "colorway": "Bone",
+          "fabric": "Pima cotton, 220gsm",
+          "description": "The piece that started the practice.",
+          "images": ["https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1800&q=80"],
+          "sizes": ["S", "M", "L", "XL"],
+          "soldOut": true
+        }
+      ]
+    }
+  ]
+}
