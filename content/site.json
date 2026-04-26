@@ -5,15 +5,27 @@
     "ctaHref": "/drops/drop-01-foundation",
     "leftMeta": "Winter 2026",
     "rightMeta": "Made in Porto",
-    "coverImage": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1800&q=80"
+    "coverImage": "https://cufpizhhsussygvfnhln.supabase.co/storage/v1/object/public/agora-media/uploads/1777224800962-lhdref.png"
   },
   "philosophy": {
     "eyebrow": "The Practice",
     "heading": "A space, not a store.",
     "tenets": [
-      { "n": "I", "title": "Made slowly.", "body": "Each drop is a single run, made in a small atelier in Porto. There is no restock — only the next." },
-      { "n": "II", "title": "Designed to last.", "body": "Cuts soften, colors deepen. Garments are intended to grow into the body." },
-      { "n": "III", "title": "Quietly worn.", "body": "No screen prints, no logos at the chest. The label sits on the inside seam." }
+      {
+        "n": "I",
+        "title": "Made slowly.",
+        "body": "Each drop is a single run, made in a small atelier in Porto. There is no restock — only the next."
+      },
+      {
+        "n": "II",
+        "title": "Designed to last.",
+        "body": "Cuts soften, colors deepen. Garments are intended to grow into the body."
+      },
+      {
+        "n": "III",
+        "title": "Quietly worn.",
+        "body": "No screen prints, no logos at the chest. The label sits on the inside seam."
+      }
     ]
   },
   "newsletter": {
@@ -45,7 +57,13 @@
       "season": "Spring 2026",
       "releaseDate": "2026-05-08T17:00:00Z",
       "status": "upcoming",
-      "palette": ["#f3ede1", "#e2d8c5", "#c4b8a1", "#8a7f6d", "#2a2722"],
+      "palette": [
+        "#f3ede1",
+        "#e2d8c5",
+        "#c4b8a1",
+        "#8a7f6d",
+        "#2a2722"
+      ],
       "cover": "https://images.unsplash.com/photo-1565073624497-7e91b5cc3843?auto=format&fit=crop&w=1800&q=80",
       "story": "Structure is a study in mass — the way a column holds light, the way a heavy garment holds the body. Six pieces, cut for posture.",
       "products": []
@@ -59,7 +77,13 @@
       "season": "Winter 2026",
       "releaseDate": "2026-02-14T17:00:00Z",
       "status": "live",
-      "palette": ["#f3ede1", "#e7dccb", "#c4b8a1", "#5e544a", "#1f1d1a"],
+      "palette": [
+        "#f3ede1",
+        "#e7dccb",
+        "#c4b8a1",
+        "#5e544a",
+        "#1f1d1a"
+      ],
       "cover": "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=1800&q=80",
       "story": "Foundation begins the practice. Six pieces, cut from heavy cottons and undyed wool, finished by hand in a small atelier in Porto. The palette is limestone and shadow. The silhouettes are quiet enough to live in.",
       "products": [
@@ -76,7 +100,13 @@
             "https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=1800&q=80",
             "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1800&q=80"
           ],
-          "sizes": ["XS", "S", "M", "L", "XL"],
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
           "soldOut": false
         },
         {
@@ -92,7 +122,13 @@
             "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1800&q=80",
             "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?auto=format&fit=crop&w=1800&q=80"
           ],
-          "sizes": ["XS", "S", "M", "L", "XL"],
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
           "soldOut": false
         },
         {
@@ -108,7 +144,13 @@
             "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1800&q=80",
             "https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?auto=format&fit=crop&w=1800&q=80"
           ],
-          "sizes": ["XS", "S", "M", "L", "XL"],
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
           "soldOut": false
         },
         {
@@ -124,7 +166,13 @@
             "https://images.unsplash.com/photo-1602810316693-3667c854239a?auto=format&fit=crop&w=1800&q=80",
             "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?auto=format&fit=crop&w=1800&q=80"
           ],
-          "sizes": ["XS", "S", "M", "L", "XL"],
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
           "soldOut": false
         },
         {
@@ -140,7 +188,13 @@
             "https://images.unsplash.com/photo-1618354691229-88d47f285158?auto=format&fit=crop&w=1800&q=80",
             "https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=1800&q=80"
           ],
-          "sizes": ["XS", "S", "M", "L", "XL"],
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
           "soldOut": false
         },
         {
@@ -156,7 +210,13 @@
             "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?auto=format&fit=crop&w=1800&q=80",
             "https://images.unsplash.com/photo-1620799139507-2a76f79a2f4d?auto=format&fit=crop&w=1800&q=80"
           ],
-          "sizes": ["XS", "S", "M", "L", "XL"],
+          "sizes": [
+            "XS",
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
           "soldOut": false
         }
       ]
@@ -170,7 +230,12 @@
       "season": "Autumn 2025",
       "releaseDate": "2025-10-12T17:00:00Z",
       "status": "archived",
-      "palette": ["#f3ede1", "#d9d2c4", "#7a7268", "#1f1d1a"],
+      "palette": [
+        "#f3ede1",
+        "#d9d2c4",
+        "#7a7268",
+        "#1f1d1a"
+      ],
       "cover": "https://images.unsplash.com/photo-1505881502353-a1986add3762?auto=format&fit=crop&w=1800&q=80",
       "story": "The earliest patterns. Garments cut for the studio's own use, then offered to a small circle.",
       "products": [
@@ -182,8 +247,15 @@
           "colorway": "Bone",
           "fabric": "Heavyweight cotton, 240gsm",
           "description": "The first tee. A blueprint for everything since.",
-          "images": ["https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=1800&q=80"],
-          "sizes": ["S", "M", "L", "XL"],
+          "images": [
+            "https://images.unsplash.com/photo-1581655353564-df123a1eb820?auto=format&fit=crop&w=1800&q=80"
+          ],
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
           "soldOut": true
         }
       ]
@@ -197,7 +269,11 @@
       "season": "Summer 2025",
       "releaseDate": "2025-06-21T17:00:00Z",
       "status": "archived",
-      "palette": ["#f3ede1", "#e2d8c5", "#b8b0a1"],
+      "palette": [
+        "#f3ede1",
+        "#e2d8c5",
+        "#b8b0a1"
+      ],
       "cover": "https://images.unsplash.com/photo-1552432552-06c0b0a94dda?auto=format&fit=crop&w=1800&q=80",
       "story": "A short, quiet release. Two pieces, sent to friends.",
       "products": [
@@ -209,8 +285,15 @@
           "colorway": "Bone",
           "fabric": "Pima cotton, 220gsm",
           "description": "The piece that started the practice.",
-          "images": ["https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1800&q=80"],
-          "sizes": ["S", "M", "L", "XL"],
+          "images": [
+            "https://images.unsplash.com/photo-1503342217505-b0a15ec3261c?auto=format&fit=crop&w=1800&q=80"
+          ],
+          "sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+          ],
           "soldOut": true
         }
       ]
