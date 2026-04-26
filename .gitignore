@@ -45,3 +45,6 @@ public/uploads/
 # IDE
 .idea
 .vscode
+
+# Claude Code per-user settings
+.claude/settings.local.json

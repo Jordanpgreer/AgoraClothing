@@ -7,6 +7,7 @@ import fs from "node:fs";
 import path from "node:path";
 import { ADMIN_COOKIE, getAdminPassword, isAuthed } from "@/lib/auth";
 import { loadContent, saveContent, type SiteContent, type Drop, type Product } from "@/lib/data";
+import { getSupabase, STORAGE_BUCKET, isSupabaseConfigured } from "@/lib/supabase";
 
 async function requireAuth() {
   if (!(await isAuthed())) throw new Error("Unauthorized");
@@ -164,10 +165,24 @@ export async function uploadImage(formData: FormData) {
     : "jpg";
   const filename = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}.${safeExt}`;
 
+  // Supabase Storage when configured (production path)
+  if (isSupabaseConfigured()) {
+    const supa = getSupabase()!;
+    const objectPath = `uploads/${filename}`;
+    const { error } = await supa.storage
+      .from(STORAGE_BUCKET)
+      .upload(objectPath, buffer, {
+        contentType: file.type || `image/${safeExt}`,
+        upsert: false,
+      });
+    if (error) throw new Error(`Supabase upload failed: ${error.message}`);
+    const { data } = supa.storage.from(STORAGE_BUCKET).getPublicUrl(objectPath);
+    return { url: data.publicUrl };
+  }
+
+  // Local-disk fallback for dev without Supabase
   const uploadsDir = path.join(process.cwd(), "public", "uploads");
   fs.mkdirSync(uploadsDir, { recursive: true });
   fs.writeFileSync(path.join(uploadsDir, filename), buffer);
-
-  const url = `/uploads/${filename}`;
-  return { url };
+  return { url: `/uploads/${filename}` };
 }
