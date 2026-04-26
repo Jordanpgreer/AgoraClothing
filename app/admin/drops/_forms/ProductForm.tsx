@@ -48,6 +48,8 @@ export default function ProductForm({
           .map((s) => s.trim())
           .filter(Boolean),
         soldOut: formData.get("soldOut") === "on",
+        madeIn: String(formData.get("madeIn") || "") || undefined,
+        care: String(formData.get("care") || "") || undefined,
       };
 
       try {
@@ -108,6 +110,12 @@ export default function ProductForm({
         </FieldRow>
         <FieldRow label="Description" span={2}>
           <TextArea name="description" defaultValue={product?.description} rows={3} />
+        </FieldRow>
+        <FieldRow label="Made in (optional override)">
+          <TextInput name="madeIn" defaultValue={product?.madeIn} placeholder="Porto, Portugal" />
+        </FieldRow>
+        <FieldRow label="Care (optional override)">
+          <TextInput name="care" defaultValue={product?.care} placeholder="Cool wash. Air dry." />
         </FieldRow>
         <FieldRow label="Sold out" span={2}>
           <label className="flex items-center gap-2 text-sm">

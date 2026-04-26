@@ -153,8 +153,8 @@ export default function ProductDetail({
             <dl className="mt-12 space-y-5">
               <Row label="Fabric" value={product.fabric} />
               <Row label="Drop" value={`${drop.numeric} · ${drop.title}`} />
-              <Row label="Made in" value="Porto, Portugal" />
-              <Row label="Care" value="Cool wash. Air dry." />
+              <Row label="Made in" value={product.madeIn || "Porto, Portugal"} />
+              <Row label="Care" value={product.care || "Cool wash. Air dry."} />
             </dl>
           </aside>
         </div>

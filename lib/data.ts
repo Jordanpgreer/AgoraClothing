@@ -15,6 +15,8 @@ export type Product = {
   images: string[];
   sizes: string[];
   soldOut?: boolean;
+  madeIn?: string;
+  care?: string;
 };
 
 export type Drop = {
