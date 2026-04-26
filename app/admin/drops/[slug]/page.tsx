@@ -12,7 +12,7 @@ export default async function EditDrop({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const drop = getDrop(slug);
+  const drop = await getDrop(slug);
   if (!drop) notFound();
 
   return (

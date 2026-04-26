@@ -7,8 +7,8 @@ import FooterForm from "./_forms/FooterForm";
 
 export const dynamic = "force-dynamic";
 
-export default function AdminHome() {
-  const content = loadContent();
+export default async function AdminHome() {
+  const content = await loadContent();
   return (
     <div className="px-8 py-10 max-w-5xl mx-auto">
       <div className="mb-10">

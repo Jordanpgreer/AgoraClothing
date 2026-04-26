@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { loadContent } from "@/lib/data";
 
-export default function Footer() {
-  const { footer } = loadContent();
+export default async function Footer() {
+  const { footer } = await loadContent();
   return (
     <footer className="bg-charcoal text-bone">
       <div className="px-8 md:px-12 py-20 grid md:grid-cols-12 gap-12">

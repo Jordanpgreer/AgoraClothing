@@ -2,13 +2,13 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Countdown from "@/components/Countdown";
 import ProductCard from "@/components/ProductCard";
-import { getDrop, loadContent } from "@/lib/data";
+import { getDrop } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params;
-  const drop = getDrop(slug);
+  const drop = await getDrop(slug);
   return { title: drop ? `Drop ${drop.numeric}: ${drop.title} — Agora` : "Drop" };
 }
 
@@ -18,7 +18,7 @@ export default async function DropDetail({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const drop = getDrop(slug);
+  const drop = await getDrop(slug);
   if (!drop) notFound();
 
   return (

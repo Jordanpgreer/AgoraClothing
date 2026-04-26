@@ -1,6 +1,8 @@
 import "server-only";
 import fs from "node:fs";
 import path from "node:path";
+import { cache } from "react";
+import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 
 export type Product = {
   slug: string;
@@ -65,22 +67,48 @@ export type SiteContent = {
 };
 
 const CONTENT_PATH = path.join(process.cwd(), "content", "site.json");
+const ROW_ID = "main";
 
-export function loadContent(): SiteContent {
+// React cache() dedupes calls within a single request render.
+export const loadContent = cache(async (): Promise<SiteContent> => {
+  if (isSupabaseConfigured()) {
+    const supa = getSupabase()!;
+    const { data, error } = await supa
+      .from("site_content")
+      .select("data")
+      .eq("id", ROW_ID)
+      .single();
+    if (error) throw new Error(`Supabase load failed: ${error.message}`);
+    return data!.data as SiteContent;
+  }
+
+  // Local-disk fallback
   const raw = fs.readFileSync(CONTENT_PATH, "utf-8");
   return JSON.parse(raw) as SiteContent;
-}
+});
 
-export function saveContent(content: SiteContent) {
+export async function saveContent(content: SiteContent) {
+  if (isSupabaseConfigured()) {
+    const supa = getSupabase()!;
+    const { error } = await supa
+      .from("site_content")
+      .upsert({ id: ROW_ID, data: content, updated_at: new Date().toISOString() });
+    if (error) throw new Error(`Supabase save failed: ${error.message}`);
+    return;
+  }
+
   fs.writeFileSync(CONTENT_PATH, JSON.stringify(content, null, 2), "utf-8");
 }
 
-export function getDrop(slug: string): Drop | undefined {
-  return loadContent().drops.find((d) => d.slug === slug);
+export async function getDrop(slug: string): Promise<Drop | undefined> {
+  const c = await loadContent();
+  return c.drops.find((d) => d.slug === slug);
 }
 
-export function getProduct(slug: string): { product: Product; drop: Drop } | null {
-  const c = loadContent();
+export async function getProduct(
+  slug: string,
+): Promise<{ product: Product; drop: Drop } | null> {
+  const c = await loadContent();
   for (const d of c.drops) {
     const p = d.products.find((p) => p.slug === slug);
     if (p) return { product: p, drop: d };
@@ -88,20 +116,22 @@ export function getProduct(slug: string): { product: Product; drop: Drop } | nul
   return null;
 }
 
-export function getFeaturedDrop(): Drop {
-  const c = loadContent();
+export async function getFeaturedDrop(): Promise<Drop> {
+  const c = await loadContent();
   return c.drops.find((d) => d.status === "live") ?? c.drops[0];
 }
 
-export function getUpcomingDrop(): Drop {
-  const c = loadContent();
+export async function getUpcomingDrop(): Promise<Drop> {
+  const c = await loadContent();
   return c.drops.find((d) => d.status === "upcoming") ?? c.drops[0];
 }
 
-export function getArchivedDrops(): Drop[] {
-  return loadContent().drops.filter((d) => d.status !== "upcoming");
+export async function getArchivedDrops(): Promise<Drop[]> {
+  const c = await loadContent();
+  return c.drops.filter((d) => d.status !== "upcoming");
 }
 
-export function getAllProducts(): Product[] {
-  return loadContent().drops.flatMap((d) => d.products);
+export async function getAllProducts(): Promise<Product[]> {
+  const c = await loadContent();
+  return c.drops.flatMap((d) => d.products);
 }

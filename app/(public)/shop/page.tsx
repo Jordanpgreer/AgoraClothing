@@ -4,8 +4,8 @@ import { getAllProducts } from "@/lib/data";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Shop · Agora" };
 
-export default function Shop() {
-  const all = getAllProducts();
+export default async function Shop() {
+  const all = await getAllProducts();
   return (
     <section className="px-6 md:px-10 pt-32 pb-32 bg-limestone">
       <div className="max-w-7xl mx-auto">

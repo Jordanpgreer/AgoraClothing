@@ -4,8 +4,8 @@ import { loadContent } from "@/lib/data";
 
 export const dynamic = "force-dynamic";
 
-export default function DropsAdmin() {
-  const { drops } = loadContent();
+export default async function DropsAdmin() {
+  const { drops } = await loadContent();
   return (
     <div className="px-8 py-10 max-w-5xl mx-auto">
       <div className="flex items-end justify-between mb-10">

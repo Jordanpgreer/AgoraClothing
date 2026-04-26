@@ -5,8 +5,8 @@ import { loadContent } from "@/lib/data";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "Archive · Agora" };
 
-export default function DropsPage() {
-  const { drops } = loadContent();
+export default async function DropsPage() {
+  const { drops } = await loadContent();
   return (
     <section className="px-6 md:px-10 pt-32 pb-32 bg-bone">
       <div className="max-w-7xl mx-auto">

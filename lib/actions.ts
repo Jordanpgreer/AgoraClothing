@@ -42,41 +42,41 @@ export async function logout() {
 
 export async function updateHero(data: SiteContent["hero"]) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   content.hero = data;
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 
 export async function updatePhilosophy(data: SiteContent["philosophy"]) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   content.philosophy = data;
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 
 export async function updateNewsletter(data: SiteContent["newsletter"]) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   content.newsletter = data;
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 
 export async function updateAbout(data: SiteContent["about"]) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   content.about = data;
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 
 export async function updateFooter(data: SiteContent["footer"]) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   content.footer = data;
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 
@@ -84,29 +84,29 @@ export async function updateFooter(data: SiteContent["footer"]) {
 
 export async function updateDrop(slug: string, data: Omit<Drop, "products">) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   const idx = content.drops.findIndex((d) => d.slug === slug);
   if (idx === -1) throw new Error("Drop not found");
   content.drops[idx] = { ...content.drops[idx], ...data };
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 
 export async function createDrop(data: Omit<Drop, "products">) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   if (content.drops.some((d) => d.slug === data.slug))
     throw new Error("A drop with this slug already exists.");
   content.drops.unshift({ ...data, products: [] });
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 
 export async function deleteDrop(slug: string) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   content.drops = content.drops.filter((d) => d.slug !== slug);
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
   redirect("/admin");
 }
@@ -119,35 +119,35 @@ export async function updateProduct(
   data: Product,
 ) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   const drop = content.drops.find((d) => d.slug === dropSlug);
   if (!drop) throw new Error("Drop not found");
   const idx = drop.products.findIndex((p) => p.slug === productSlug);
   if (idx === -1) throw new Error("Product not found");
   drop.products[idx] = data;
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 
 export async function createProduct(dropSlug: string, data: Product) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   const drop = content.drops.find((d) => d.slug === dropSlug);
   if (!drop) throw new Error("Drop not found");
   if (drop.products.some((p) => p.slug === data.slug))
     throw new Error("Product slug already in use.");
   drop.products.push(data);
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 
 export async function deleteProduct(dropSlug: string, productSlug: string) {
   await requireAuth();
-  const content = loadContent();
+  const content = await loadContent();
   const drop = content.drops.find((d) => d.slug === dropSlug);
   if (!drop) throw new Error("Drop not found");
   drop.products = drop.products.filter((p) => p.slug !== productSlug);
-  saveContent(content);
+  await saveContent(content);
   refreshAll();
 }
 

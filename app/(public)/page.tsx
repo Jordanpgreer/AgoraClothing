@@ -13,14 +13,19 @@ import {
 
 export const dynamic = "force-dynamic";
 
-export default function Home() {
-  const content = loadContent();
+export default async function Home() {
+  const [content, featured, upcoming, archived] = await Promise.all([
+    loadContent(),
+    getFeaturedDrop(),
+    getUpcomingDrop(),
+    getArchivedDrops(),
+  ]);
   return (
     <>
       <Hero hero={content.hero} />
-      <DropFeature drop={getFeaturedDrop()} />
-      <CountdownStripe drop={getUpcomingDrop()} />
-      <Archive drops={getArchivedDrops()} />
+      <DropFeature drop={featured} />
+      <CountdownStripe drop={upcoming} />
+      <Archive drops={archived} />
       <Philosophy data={content.philosophy} />
       <Newsletter data={content.newsletter} />
     </>

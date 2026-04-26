@@ -4,8 +4,8 @@ import { loadContent } from "@/lib/data";
 export const dynamic = "force-dynamic";
 export const metadata = { title: "About · Agora" };
 
-export default function About() {
-  const { about } = loadContent();
+export default async function About() {
+  const { about } = await loadContent();
   return (
     <article className="pb-32 bg-bone">
       <section className="px-6 md:px-10 pt-32 pb-20 max-w-4xl mx-auto text-center">
