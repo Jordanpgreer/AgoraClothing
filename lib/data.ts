@@ -2,6 +2,14 @@ import "server-only";
 import fs from "node:fs";
 import path from "node:path";
 import { cache } from "react";
+import {
+  cloneAdminFinance,
+  type AdminFinance,
+} from "@/lib/admin-finance";
+import {
+  cloneAdminTodoSections,
+  type AdminTodoSection,
+} from "@/lib/admin-todos";
 import { getSupabase, isSupabaseConfigured } from "@/lib/supabase";
 
 export type Product = {
@@ -66,10 +74,20 @@ export type SiteContent = {
   };
   footer: { tagline: string };
   drops: Drop[];
+  adminTodo?: AdminTodoSection[];
+  adminFinance?: AdminFinance;
 };
 
 const CONTENT_PATH = path.join(process.cwd(), "content", "site.json");
 const ROW_ID = "main";
+
+function normalizeContent(content: SiteContent): SiteContent {
+  return {
+    ...content,
+    adminTodo: content.adminTodo ?? cloneAdminTodoSections(),
+    adminFinance: content.adminFinance ?? cloneAdminFinance(),
+  };
+}
 
 // React cache() dedupes calls within a single request render.
 export const loadContent = cache(async (): Promise<SiteContent> => {
@@ -81,12 +99,12 @@ export const loadContent = cache(async (): Promise<SiteContent> => {
       .eq("id", ROW_ID)
       .single();
     if (error) throw new Error(`Supabase load failed: ${error.message}`);
-    return data!.data as SiteContent;
+    return normalizeContent(data!.data as SiteContent);
   }
 
   // Local-disk fallback
   const raw = fs.readFileSync(CONTENT_PATH, "utf-8");
-  return JSON.parse(raw) as SiteContent;
+  return normalizeContent(JSON.parse(raw) as SiteContent);
 });
 
 export async function saveContent(content: SiteContent) {

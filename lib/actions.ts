@@ -5,6 +5,8 @@ import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 import fs from "node:fs";
 import path from "node:path";
+import type { AdminFinance } from "@/lib/admin-finance";
+import type { AdminTodoSection } from "@/lib/admin-todos";
 import { ADMIN_COOKIE, getAdminPassword, isAuthed } from "@/lib/auth";
 import { loadContent, saveContent, type SiteContent, type Drop, type Product } from "@/lib/data";
 import { getSupabase, STORAGE_BUCKET, isSupabaseConfigured } from "@/lib/supabase";
@@ -76,6 +78,22 @@ export async function updateFooter(data: SiteContent["footer"]) {
   await requireAuth();
   const content = await loadContent();
   content.footer = data;
+  await saveContent(content);
+  refreshAll();
+}
+
+export async function updateAdminTodo(data: AdminTodoSection[]) {
+  await requireAuth();
+  const content = await loadContent();
+  content.adminTodo = data;
+  await saveContent(content);
+  refreshAll();
+}
+
+export async function updateAdminFinance(data: AdminFinance) {
+  await requireAuth();
+  const content = await loadContent();
+  content.adminFinance = data;
   await saveContent(content);
   refreshAll();
 }
