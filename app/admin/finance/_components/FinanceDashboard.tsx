@@ -202,12 +202,12 @@ export default function FinanceDashboard({ finance }: { finance: AdminFinance })
   }
 
   return (
-    <div className="overflow-hidden rounded-[28px] border border-charcoal/20 bg-[#020617] text-white shadow-[0_24px_80px_rgba(15,23,42,0.28)]">
+    <div className="overflow-hidden rounded-[24px] border border-charcoal/20 bg-[#020617] text-white shadow-[0_24px_80px_rgba(15,23,42,0.28)] sm:rounded-[28px]">
       <div className="border-b border-white/8 bg-[radial-gradient(circle_at_top_left,rgba(200,160,74,0.18),transparent_28%),linear-gradient(135deg,rgba(15,23,42,0.92),rgba(2,6,23,1))] px-6 py-8 md:px-8">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
             <p className="label-sm text-[rgba(248,250,252,0.58)]">Finance Control Room</p>
-            <h2 className="mt-3 font-display text-4xl leading-none text-white md:text-5xl">
+            <h2 className="mt-3 font-display text-3xl leading-none text-white sm:text-4xl md:text-5xl">
               {state.scenario.name}
             </h2>
             <p className="mt-4 max-w-xl text-sm leading-6 text-[rgba(248,250,252,0.68)]">
@@ -259,14 +259,14 @@ export default function FinanceDashboard({ finance }: { finance: AdminFinance })
       <div className="grid gap-0 xl:grid-cols-[1.3fr_0.9fr]">
         <div className="border-b border-white/8 xl:border-b-0 xl:border-r xl:border-white/8">
           <section className="border-b border-white/8 px-6 py-6 md:px-8">
-            <div className="mb-5 flex items-end justify-between gap-4">
+            <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
               <div>
                 <p className="label-sm text-[rgba(248,250,252,0.58)]">Scenario</p>
                 <h3 className="mt-2 font-display text-2xl text-white">
                   Order Economics
                 </h3>
               </div>
-              <p className="text-sm text-[rgba(248,250,252,0.58)]">
+              <p className="max-w-md text-sm text-[rgba(248,250,252,0.58)]">
                 Use this to pressure-test a single product or the hero piece in a drop.
               </p>
             </div>
@@ -467,7 +467,7 @@ export default function FinanceDashboard({ finance }: { finance: AdminFinance })
             </div>
 
             <div className="rounded-[24px] border border-white/10 bg-white/5 p-5">
-              <div className="flex items-end justify-between gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
                 <div>
                   <p className="label-sm text-[rgba(248,250,252,0.58)]">Cost Stack</p>
                   <p className="mt-2 text-sm text-[rgba(248,250,252,0.68)]">
@@ -589,7 +589,7 @@ function LineItemEditor({
 }) {
   return (
     <section className="border-t border-white/8 px-6 py-6 md:px-8 lg:border-t-0 lg:first:border-r lg:first:border-white/8">
-      <div className="mb-5 flex items-end justify-between gap-4">
+      <div className="mb-5 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <p className="label-sm text-[rgba(248,250,252,0.58)]">{title}</p>
           <p className="mt-2 text-sm leading-6 text-[rgba(248,250,252,0.68)]">
@@ -658,7 +658,7 @@ function ReadoutRow({
   strong?: boolean;
 }) {
   return (
-    <div className="flex items-center justify-between gap-4 border-b border-white/8 pb-3 last:border-b-0 last:pb-0">
+    <div className="flex flex-col gap-1 border-b border-white/8 pb-3 last:border-b-0 last:pb-0 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
       <span className={strong ? "text-white" : ""}>{label}</span>
       <span className={strong ? "text-white" : "text-[rgba(248,250,252,0.84)]"}>
         {value}

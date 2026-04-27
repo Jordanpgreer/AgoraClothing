@@ -2,10 +2,10 @@ import NewDropForm from "../_forms/NewDropForm";
 
 export default function NewDrop() {
   return (
-    <div className="px-8 py-10 max-w-3xl mx-auto">
+    <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
       <div className="mb-8">
-        <p className="label-sm text-charcoal/65 mb-2">Drops</p>
-        <h1 className="wordmark text-2xl text-ink font-light">New Drop</h1>
+        <p className="mb-2 label-sm text-charcoal/65">Drops</p>
+        <h1 className="wordmark text-2xl font-light text-ink">New Drop</h1>
       </div>
       <NewDropForm />
     </div>

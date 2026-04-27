@@ -8,7 +8,7 @@ export function AdminSection({
   children: React.ReactNode;
 }) {
   return (
-    <section className="border border-charcoal/15 bg-white p-8 mb-6">
+    <section className="mb-6 border border-charcoal/15 bg-white p-5 sm:p-6 lg:p-8">
       <div className="mb-6">
         <h2 className="wordmark text-base text-ink mb-1">{title}</h2>
         {description && (

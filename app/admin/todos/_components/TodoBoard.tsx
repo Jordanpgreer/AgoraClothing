@@ -113,11 +113,11 @@ export default function TodoBoard({ sections }: { sections: AdminTodoSection[] }
   return (
     <div className="space-y-6">
       <section className="grid gap-4 md:grid-cols-[1.4fr_0.9fr_0.9fr]">
-        <div className="border border-charcoal/15 bg-white p-6">
+        <div className="border border-charcoal/15 bg-white p-5 sm:p-6">
           <p className="label-sm text-charcoal/55">Progress</p>
-          <div className="mt-3 flex items-end gap-3">
+          <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:gap-3">
             <span className="font-display text-5xl text-ink">{totals.complete}</span>
-            <span className="pb-2 text-sm text-charcoal/60">of {totals.total} complete</span>
+            <span className="text-sm text-charcoal/60 sm:pb-2">of {totals.total} complete</span>
           </div>
           <div className="mt-4 h-2 bg-limestone">
             <div
@@ -132,12 +132,12 @@ export default function TodoBoard({ sections }: { sections: AdminTodoSection[] }
           </div>
         </div>
 
-        <div className="border border-charcoal/15 bg-white p-6">
+        <div className="border border-charcoal/15 bg-white p-5 sm:p-6">
           <p className="label-sm text-charcoal/55">Sections</p>
           <p className="mt-3 font-display text-4xl text-ink">{items.length}</p>
         </div>
 
-        <div className="border border-charcoal/15 bg-white p-6">
+        <div className="border border-charcoal/15 bg-white p-5 sm:p-6">
           <p className="label-sm text-charcoal/55">Actions</p>
           <div className="mt-4 flex flex-wrap gap-3">
             <button
@@ -165,7 +165,7 @@ export default function TodoBoard({ sections }: { sections: AdminTodoSection[] }
           const doneCount = section.items.filter((todo) => todo.done).length;
 
           return (
-            <section key={section.id} className="border border-charcoal/15 bg-white p-6">
+            <section key={section.id} className="border border-charcoal/15 bg-white p-5 sm:p-6">
               <div className="flex flex-wrap items-start justify-between gap-4 border-b border-charcoal/10 pb-4">
                 <div className="min-w-0 flex-1">
                   <input
@@ -190,13 +190,13 @@ export default function TodoBoard({ sections }: { sections: AdminTodoSection[] }
                 {section.items.map((todo) => (
                   <div
                     key={todo.id}
-                    className="grid grid-cols-[auto_1fr_auto] items-start gap-3 border border-charcoal/10 bg-bone/40 px-3 py-3"
+                    className="grid gap-3 border border-charcoal/10 bg-bone/40 px-3 py-3 sm:grid-cols-[auto_1fr_auto] sm:items-start"
                   >
                     <input
                       type="checkbox"
                       checked={todo.done}
                       onChange={() => toggleItem(section.id, todo.id)}
-                      className="mt-1 h-4 w-4 accent-charcoal"
+                      className="h-4 w-4 accent-charcoal sm:mt-1"
                     />
                     <textarea
                       value={todo.text}
@@ -208,13 +208,15 @@ export default function TodoBoard({ sections }: { sections: AdminTodoSection[] }
                         todo.done ? "text-charcoal/45 line-through" : ""
                       }`}
                     />
-                    <button
-                      type="button"
-                      onClick={() => removeItem(section.id, todo.id)}
-                      className="label-sm text-charcoal/50 transition hover:text-ink"
-                    >
-                      Remove
-                    </button>
+                    <div className="flex justify-end sm:block">
+                      <button
+                        type="button"
+                        onClick={() => removeItem(section.id, todo.id)}
+                        className="label-sm text-charcoal/50 transition hover:text-ink"
+                      >
+                        Remove
+                      </button>
+                    </div>
                   </div>
                 ))}
               </div>

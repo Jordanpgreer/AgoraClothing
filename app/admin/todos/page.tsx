@@ -7,7 +7,7 @@ export default async function AdminTodosPage() {
   const content = await loadContent();
 
   return (
-    <div className="mx-auto max-w-7xl px-8 py-10">
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
       <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="label-sm mb-2 text-charcoal/65">Admin To-Do</p>
@@ -15,7 +15,7 @@ export default async function AdminTodosPage() {
             Track launch work and add new tasks as they come up.
           </h1>
         </div>
-        <div className="border border-charcoal/15 bg-white px-4 py-3 text-right">
+        <div className="border border-charcoal/15 bg-white px-4 py-3 text-left md:text-right">
           <p className="label-sm text-charcoal/55">Checklist</p>
           <p className="mt-1 text-sm text-charcoal/75">
             Seeded with your full project list. Check items off as work lands.

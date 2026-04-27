@@ -16,12 +16,12 @@ export default async function EditDrop({
   if (!drop) notFound();
 
   return (
-    <div className="px-8 py-10 max-w-5xl mx-auto">
+    <div className="mx-auto max-w-5xl px-4 py-8 sm:px-6 lg:px-8 lg:py-10">
       <div className="mb-10">
         <Link href="/admin/drops" className="label-sm text-charcoal/65 hover:text-ink">
           ← All Drops
         </Link>
-        <h1 className="wordmark text-2xl text-ink font-light mt-3">
+        <h1 className="mt-3 wordmark text-2xl font-light text-ink">
           Drop {drop.numeric}: {drop.title}
         </h1>
       </div>

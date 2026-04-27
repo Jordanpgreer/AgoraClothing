@@ -174,7 +174,7 @@ export function MultiImagePicker({
   return (
     <div className="space-y-3">
       <input type="hidden" name={name} value={JSON.stringify(urls)} />
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
         {urls.map((u, i) => (
           <div key={i} className="space-y-1.5">
             <div className="relative aspect-[4/5] bg-limestone border border-charcoal/15 overflow-hidden">
@@ -207,7 +207,7 @@ export function MultiImagePicker({
           </div>
         ))}
       </div>
-      <div className="flex gap-3">
+      <div className="flex flex-col gap-3 sm:flex-row">
         <label className="cursor-pointer">
           <input
             type="file"

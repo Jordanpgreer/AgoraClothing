@@ -11,9 +11,12 @@ export default function ProductsList({ drop }: { drop: Drop }) {
   const [creating, setCreating] = useState(false);
 
   return (
-    <AdminSection title={`Products (${drop.products.length})`} description="Each piece in this drop.">
+    <AdminSection
+      title={`Products (${drop.products.length})`}
+      description="Each piece in this drop."
+    >
       {creating && (
-        <div className="mb-6 border border-ink/40 p-4 bg-bone">
+        <div className="mb-6 bg-bone p-4 border border-ink/40">
           <ProductForm
             dropSlug={drop.slug}
             onDone={() => setCreating(false)}
@@ -23,19 +26,19 @@ export default function ProductsList({ drop }: { drop: Drop }) {
       )}
 
       <ul className="space-y-3">
-        {drop.products.map((p) => (
-          <li key={p.slug}>
-            {editing === p.slug ? (
-              <div className="border border-ink/40 p-4 bg-bone">
+        {drop.products.map((product) => (
+          <li key={product.slug}>
+            {editing === product.slug ? (
+              <div className="bg-bone p-4 border border-ink/40">
                 <ProductForm
                   dropSlug={drop.slug}
-                  product={p}
+                  product={product}
                   onDone={() => setEditing(null)}
                   onCancel={() => setEditing(null)}
                 />
               </div>
             ) : (
-              <ProductRow product={p} onEdit={() => setEditing(p.slug)} />
+              <ProductRow product={product} onEdit={() => setEditing(product.slug)} />
             )}
           </li>
         ))}
@@ -45,7 +48,7 @@ export default function ProductsList({ drop }: { drop: Drop }) {
         <button
           type="button"
           onClick={() => setCreating(true)}
-          className="mt-6 label-sm text-ink border border-ink/40 px-4 py-2 hover:bg-ink hover:text-bone transition"
+          className="mt-6 border border-ink/40 px-4 py-2 label-sm text-ink transition hover:bg-ink hover:text-bone"
         >
           + Add Product
         </button>
@@ -54,32 +57,49 @@ export default function ProductsList({ drop }: { drop: Drop }) {
   );
 }
 
-function ProductRow({ product, onEdit }: { product: Product; onEdit: () => void }) {
+function ProductRow({
+  product,
+  onEdit,
+}: {
+  product: Product;
+  onEdit: () => void;
+}) {
   return (
     <button
       onClick={onEdit}
-      className="w-full flex items-center gap-4 border border-charcoal/15 bg-white p-3 text-left hover:border-ink transition-colors"
+      className="flex w-full flex-col gap-4 border border-charcoal/15 bg-white p-3 text-left transition-colors hover:border-ink sm:flex-row sm:items-center"
     >
-      <div className="relative w-14 h-16 bg-limestone overflow-hidden flex-shrink-0">
+      <div className="relative h-44 w-full overflow-hidden bg-limestone sm:h-16 sm:w-14 sm:flex-shrink-0">
         {product.images[0] && (
-          <Image src={product.images[0]} alt={product.name} fill sizes="60px" className="object-cover" unoptimized />
+          <Image
+            src={product.images[0]}
+            alt={product.name}
+            fill
+            sizes="(max-width: 640px) 100vw, 56px"
+            className="object-cover"
+            unoptimized
+          />
         )}
       </div>
+
       <div className="flex-1">
         <p className="text-sm text-ink">{product.name}</p>
-        <p className="label-sm text-charcoal/65 mt-1">
+        <p className="mt-1 label-sm text-charcoal/65">
           {product.category} · {product.colorway}
         </p>
       </div>
-      <p className="font-mono text-[13px] text-charcoal/80 tabular-nums">
-        ${product.price}
-      </p>
-      {product.soldOut && (
-        <span className="label-sm text-charcoal/65 border border-charcoal/30 px-2 py-1">
-          Sold Out
-        </span>
-      )}
-      <span className="text-charcoal/45">→</span>
+
+      <div className="flex flex-wrap items-center gap-3 sm:flex-nowrap">
+        <p className="font-mono text-[13px] tabular-nums text-charcoal/80">
+          ${product.price}
+        </p>
+        {product.soldOut && (
+          <span className="label-sm border border-charcoal/30 px-2 py-1 text-charcoal/65">
+            Sold Out
+          </span>
+        )}
+        <span className="text-charcoal/45">→</span>
+      </div>
     </button>
   );
 }
