@@ -5,7 +5,6 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import type { SiteContent } from "@/lib/data";
-import Laurel from "@/components/Laurel";
 
 export default function Hero({ hero }: { hero: SiteContent["hero"] }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -50,14 +49,25 @@ export default function Hero({ hero }: { hero: SiteContent["hero"] }) {
         className="relative z-10 flex flex-col items-center text-center px-6"
         style={{ y: yContent, opacity: opacityContent }}
       >
-        {/* Laurel wreath crown */}
+        {/* Laurel wreath crown — sized as a fraction of viewport so it scales with the wordmark */}
         <motion.div
-          initial={{ opacity: 0, y: -16, scale: 0.9 }}
+          initial={{ opacity: 0, y: -20, scale: 0.85 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
-          transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-4 md:mb-6"
+          transition={{ duration: 1.4, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="relative mb-6 md:mb-8"
+          style={{
+            width: "clamp(180px, 22vw, 360px)",
+            aspectRatio: "1 / 1",
+          }}
         >
-          <Laurel variant="gold" size={90} />
+          <Image
+            src="/logo/laurel.png"
+            alt="Agora laurel"
+            fill
+            sizes="(max-width: 768px) 200px, 320px"
+            priority
+            className="object-contain"
+          />
         </motion.div>
 
         <h1 className="wordmark text-[12vw] md:text-[7.5vw] leading-none text-ink flex">
