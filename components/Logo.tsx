@@ -1,44 +1,46 @@
+"use client";
+
 import clsx from "clsx";
+import Image from "next/image";
 import Laurel from "./Laurel";
 
-type Variant = "primary" | "wreath-flank" | "wordmark-only" | "gold-on-dark";
-
-// Full brand lockup: laurel above wordmark above tagline.
+// Full primary lockup — uses the official primary.png asset directly so
+// proportions, kerning, and tagline match the brand kit exactly.
 export function LogoPrimary({
   size = "md",
-  showTagline = true,
   className = "",
+  invert = false,
 }: {
   size?: "sm" | "md" | "lg" | "xl";
-  showTagline?: boolean;
   className?: string;
+  invert?: boolean;
 }) {
-  const sizes = {
-    sm: { laurel: 38, mark: "text-xl md:text-2xl", tag: "text-[9px]" },
-    md: { laurel: 56, mark: "text-3xl md:text-4xl", tag: "text-[10px]" },
-    lg: { laurel: 80, mark: "text-5xl md:text-6xl", tag: "text-[11px]" },
-    xl: { laurel: 120, mark: "text-[7vw] md:text-[5.5vw]", tag: "text-xs" },
-  };
-  const s = sizes[size];
+  const widths = { sm: 180, md: 280, lg: 420, xl: 560 };
+  const heights = { sm: 130, md: 200, lg: 300, xl: 400 };
+  const w = widths[size];
+  const h = heights[size];
   return (
-    <div className={clsx("flex flex-col items-center text-center", className)}>
-      <Laurel variant="gold" size={s.laurel} />
-      <p
-        className={clsx(
-          "wordmark text-ink font-normal mt-2 leading-none",
-          s.mark,
-        )}
-      >
-        AGORA
-      </p>
-      {showTagline && (
-        <p className={clsx("tagline mt-3", s.tag)}>A Study in Form</p>
-      )}
+    <div
+      className={clsx("relative inline-block", className)}
+      style={{
+        width: w,
+        height: h,
+        filter: invert ? "invert(1) brightness(1.1)" : undefined,
+      }}
+    >
+      <Image
+        src="/logo/primary.png"
+        alt="Agora — A Study in Form"
+        fill
+        sizes={`${w}px`}
+        className="object-contain"
+        priority
+      />
     </div>
   );
 }
 
-// Horizontal lockup: small laurel + wordmark side by side.
+// Horizontal lockup using the laurel + serif wordmark. Useful in the nav.
 export function LogoHorizontal({
   size = "md",
   className = "",
@@ -57,7 +59,7 @@ export function LogoHorizontal({
   return (
     <div className={clsx("inline-flex items-center gap-3", className)}>
       <Laurel variant="gold" size={s.laurel} />
-      <span className={clsx("wordmark text-ink font-normal leading-none", s.mark)}>
+      <span className={clsx("wordmark text-ink leading-none", s.mark)}>
         AGORA
       </span>
       {flank && <Laurel variant="gold" size={s.laurel} className="scale-x-[-1]" />}
@@ -65,7 +67,8 @@ export function LogoHorizontal({
   );
 }
 
-// Stamp / circular badge — for empty states and seals.
+// Stamp / circular badge — tagline curving along the bottom arc, brand
+// laurel anchored beneath the wordmark.
 export function LogoBadge({
   size = 140,
   className = "",
@@ -78,7 +81,6 @@ export function LogoBadge({
       className={clsx("relative inline-flex items-center justify-center", className)}
       style={{ width: size, height: size }}
     >
-      {/* Outer ring */}
       <svg viewBox="0 0 100 100" className="absolute inset-0 w-full h-full">
         <circle
           cx="50"
@@ -88,34 +90,25 @@ export function LogoBadge({
           stroke="var(--color-gold)"
           strokeWidth="0.6"
         />
+        <defs>
+          <path id="badge-arc" d="M 12 50 A 38 38 0 0 0 88 50" fill="none" />
+        </defs>
         <text
-          fontSize="6"
+          fontSize="5.6"
           fill="var(--color-gold)"
           fontFamily="var(--font-sans)"
-          letterSpacing="0.3em"
+          letterSpacing="0.32em"
           textAnchor="middle"
         >
-          {/* Curved tagline along bottom of circle */}
-          <textPath
-            href="#badge-arc"
-            startOffset="50%"
-          >
+          <textPath href="#badge-arc" startOffset="50%">
             A · STUDY · IN · FORM
           </textPath>
         </text>
-        <defs>
-          <path
-            id="badge-arc"
-            d="M 10 50 A 40 40 0 0 0 90 50"
-            fill="none"
-          />
-        </defs>
       </svg>
 
-      {/* Center: wordmark + small laurel below */}
       <div className="relative flex flex-col items-center">
         <p
-          className="wordmark text-ink font-normal leading-none"
+          className="wordmark text-ink leading-none"
           style={{ fontSize: size * 0.13 }}
         >
           AGORA
