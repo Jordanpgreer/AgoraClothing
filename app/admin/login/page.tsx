@@ -1,4 +1,5 @@
 import { login } from "@/lib/actions";
+import { LogoPrimary } from "@/components/Logo";
 
 export const metadata = { title: "Admin · Sign In" };
 
@@ -16,8 +17,8 @@ export default async function LoginPage({
         className="w-full max-w-sm space-y-6 border border-charcoal/15 p-10 bg-white"
       >
         <div className="text-center">
-          <p className="wordmark text-lg text-ink mb-2">AGORA</p>
-          <p className="label-sm text-charcoal/65">Studio Admin</p>
+          <LogoPrimary size="sm" />
+          <p className="label-sm text-charcoal/65 mt-6">Studio Admin</p>
         </div>
         <div>
           <label className="label-sm text-charcoal/65 mb-2 block">Password</label>

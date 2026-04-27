@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { loadContent } from "@/lib/data";
+import Laurel from "./Laurel";
 
 export default async function Footer() {
   const { footer } = await loadContent();
@@ -7,8 +8,14 @@ export default async function Footer() {
     <footer className="bg-charcoal text-bone">
       <div className="px-8 md:px-12 py-20 grid md:grid-cols-12 gap-12">
         <div className="md:col-span-5">
-          <p className="wordmark text-xl text-bone mb-6">AGORA</p>
-          <p className="text-[14px] text-bone/65 leading-[1.7] max-w-sm">
+          <div className="mb-6">
+            <Laurel variant="gold" size={56} />
+            <p className="wordmark text-2xl mt-3 text-bone leading-none">AGORA</p>
+            <p className="tagline mt-3" style={{ color: "var(--color-gold)" }}>
+              A Study in Form
+            </p>
+          </div>
+          <p className="text-[14px] text-bone/65 leading-[1.7] max-w-sm mt-8">
             {footer.tagline}
           </p>
         </div>

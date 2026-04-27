@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
 import type { SiteContent } from "@/lib/data";
+import Laurel from "@/components/Laurel";
 
 export default function Hero({ hero }: { hero: SiteContent["hero"] }) {
   const ref = useRef<HTMLDivElement>(null);
@@ -49,7 +50,17 @@ export default function Hero({ hero }: { hero: SiteContent["hero"] }) {
         className="relative z-10 flex flex-col items-center text-center px-6"
         style={{ y: yContent, opacity: opacityContent }}
       >
-        <h1 className="wordmark text-[12vw] md:text-[7.5vw] leading-none text-ink font-light flex">
+        {/* Laurel wreath crown */}
+        <motion.div
+          initial={{ opacity: 0, y: -16, scale: 0.9 }}
+          animate={{ opacity: 1, y: 0, scale: 1 }}
+          transition={{ duration: 1.2, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
+          className="mb-4 md:mb-6"
+        >
+          <Laurel variant="gold" size={90} />
+        </motion.div>
+
+        <h1 className="wordmark text-[12vw] md:text-[7.5vw] leading-none text-ink flex">
           {letters.map((l, i) => (
             <motion.span
               key={i}
@@ -57,10 +68,10 @@ export default function Hero({ hero }: { hero: SiteContent["hero"] }) {
               animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               transition={{
                 duration: 1.1,
-                delay: 0.15 + i * 0.09,
+                delay: 0.4 + i * 0.09,
                 ease: [0.22, 1, 0.36, 1],
               }}
-              style={{ display: "inline-block", marginRight: "0.42em" }}
+              style={{ display: "inline-block", marginRight: "0.18em" }}
             >
               {l}
             </motion.span>
@@ -68,10 +79,19 @@ export default function Hero({ hero }: { hero: SiteContent["hero"] }) {
         </h1>
 
         <motion.p
+          initial={{ opacity: 0, y: 8 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, delay: 1.0 }}
+          className="tagline mt-5"
+        >
+          A Study in Form
+        </motion.p>
+
+        <motion.p
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 0.95 }}
-          className="label text-charcoal/85 mt-8 md:mt-10"
+          transition={{ duration: 1, delay: 1.15 }}
+          className="label text-charcoal/85 mt-8"
         >
           {hero.subtitle}
         </motion.p>
@@ -80,7 +100,7 @@ export default function Hero({ hero }: { hero: SiteContent["hero"] }) {
         <motion.div
           initial={{ scaleX: 0 }}
           animate={{ scaleX: 1 }}
-          transition={{ duration: 1.4, delay: 1.25, ease: [0.22, 1, 0.36, 1] }}
+          transition={{ duration: 1.4, delay: 1.4, ease: [0.22, 1, 0.36, 1] }}
           className="w-16 h-px bg-charcoal/60 mt-7 origin-center"
         />
 
@@ -100,6 +120,8 @@ export default function Hero({ hero }: { hero: SiteContent["hero"] }) {
           </Link>
         </motion.div>
       </motion.div>
+
+      {/* Adjust delay sequencing — extra time taken by laurel intro */}
 
       <motion.div
         initial={{ opacity: 0 }}

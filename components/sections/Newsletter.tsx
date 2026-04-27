@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import type { SiteContent } from "@/lib/data";
+import Laurel from "@/components/Laurel";
 
 export default function Newsletter({ data }: { data: SiteContent["newsletter"] }) {
   return (
@@ -20,6 +21,15 @@ export default function Newsletter({ data }: { data: SiteContent["newsletter"] }
       </div>
 
       <div className="relative max-w-2xl mx-auto text-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1 }}
+          className="flex justify-center mb-8"
+        >
+          <Laurel variant="gold" size={48} />
+        </motion.div>
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

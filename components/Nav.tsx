@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import clsx from "clsx";
 import { motion } from "motion/react";
 import SoundToggle from "./SoundToggle";
+import Laurel from "./Laurel";
 
 export default function Nav() {
   const { count, setOpen } = useCart();
@@ -37,18 +38,21 @@ export default function Nav() {
           onMouseLeave={() => setHoverLogo(false)}
           data-cursor="view"
           data-cursor-label="Home"
-          className="text-[15px] md:text-[17px] text-ink uppercase font-light"
+          className="flex items-center gap-3 text-[15px] md:text-[17px] text-ink"
         >
-          {"AGORA".split("").map((l, i) => (
-            <motion.span
-              key={i}
-              animate={{ letterSpacing: hoverLogo ? "0.6em" : "0.42em" }}
-              transition={{ duration: 0.8, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
-              style={{ display: "inline-block" }}
-            >
-              {l}
-            </motion.span>
-          ))}
+          <Laurel variant="gold" size={26} />
+          <span className="wordmark text-ink leading-none">
+            {"AGORA".split("").map((l, i) => (
+              <motion.span
+                key={i}
+                animate={{ letterSpacing: hoverLogo ? "0.6em" : "0.42em" }}
+                transition={{ duration: 0.8, delay: i * 0.04, ease: [0.22, 1, 0.36, 1] }}
+                style={{ display: "inline-block" }}
+              >
+                {l}
+              </motion.span>
+            ))}
+          </span>
         </Link>
 
         <nav className="flex items-center gap-7 md:gap-12">

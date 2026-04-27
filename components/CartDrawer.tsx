@@ -6,6 +6,7 @@ import Link from "next/link";
 import { useCart } from "@/lib/cart";
 import { useEffect, useState } from "react";
 import Odometer from "./Odometer";
+import Laurel from "./Laurel";
 
 export default function CartDrawer() {
   const { open, setOpen, items, remove, subtotal } = useCart();
@@ -124,16 +125,15 @@ function EmptyState({ onClose }: { onClose: () => void }) {
     <div className="h-full flex flex-col items-center justify-center text-center gap-5 py-20">
       <motion.div
         animate={{
-          scaleY: [1, 1.04, 1],
-          opacity: [0.55, 0.85, 0.55],
+          scale: [1, 1.04, 1],
+          opacity: [0.7, 1, 0.7],
         }}
-        transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-        className="flex flex-col items-center gap-3"
+        transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
       >
-        <div className="w-2 h-24 bg-clay/60 rounded-sm" />
-        <div className="w-12 h-1 bg-clay/60 rounded-sm" />
+        <Laurel variant="gold" size={88} />
       </motion.div>
-      <p className="wordmark text-xl text-ink font-light">A quiet bag.</p>
+      <p className="wordmark text-xl text-ink">A quiet bag.</p>
+      <p className="tagline">A Study in Form</p>
       <p className="text-sm text-charcoal/60 max-w-xs">
         Begin with a single piece — each is made in limited number.
       </p>
